@@ -1,14 +1,13 @@
 package negocio.entidades;
 
-public class Aluno extends Usuario{
-
-    Aluno(double CPF, String nome) {
-        super(CPF, nome);
+// herda de usuario
+public class Aluno extends Usuario {
+    public Aluno(String cpf, String nome, String dataNascimento) {
+        super(cpf, nome, dataNascimento);
     }
 
     @Override
-    public int limiteEmprestimo(int limite) {
-        return 3;
+    public int getLimiteEmprestimo() {
+        return 3; // limite do pdf
     }
-
 }

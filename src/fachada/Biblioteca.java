@@ -1,21 +1,17 @@
 package fachada;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import negocio.entidades.Livro;
+import dados.usuario.*;
 import negocio.entidades.Usuario;
 
-
+// fachada concentrando tudo pro main
 public class Biblioteca {
-    private ArrayList<Livro> listaLivros;
-    private ArrayList<Usuario> listaUsuarios;
-    private Scanner ler;
-    
+    private IRepositorioUsuarios repUsuarios;
+
     public Biblioteca() {
-        this.listaLivros = new ArrayList<>();
-        this.listaUsuarios = new ArrayList<>();
-        this.ler = new Scanner(System.in);
+        // dps mudar pro CSV quando for salvar msm
+        this.repUsuarios = new RepositorioUsuariosArrayList();
     }
-    
+
+    public void cadastrarUsuario(Usuario u) {
+        repUsuarios.cadastrarUsuario(u);
+    }
 }

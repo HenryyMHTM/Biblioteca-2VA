@@ -1,4 +1,4 @@
-package entidades;
+package negocio.entidades;
 
 public abstract class Usuario {
     double CPF;

@@ -3,8 +3,8 @@ package fachada;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import entidades.Livro;
-import entidades.Usuario;
+import negocio.entidades.Livro;
+import negocio.entidades.Usuario;
 
 
 public class Biblioteca {

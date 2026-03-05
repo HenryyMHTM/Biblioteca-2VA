@@ -1,0 +1,151 @@
+titulo,autor,ano_publicacao,genero,isbn,status
+Dom Casmurro,Machado de Assis,1899,Romance,978-85-001,True
+Os Lusíadas,Luís de Camões,1572,Poesia,978-97-002,True
+Memórias Póstumas de Brás Cubas,Machado de Assis,1881,Romance,978-85-003,False
+O Primo Basílio,Eça de Queirós,1878,Romance,978-97-004,True
+Grande Sertão: Veredas,Guimarães Rosa,1956,Romance,978-85-005,True
+Ensaio Sobre a Cegueira,José Saramago,1995,Ficção,978-97-006,False
+A Hora da Estrela,Clarice Lispector,1977,Romance,978-85-007,True
+Mensagem,Fernando Pessoa,1934,Poesia,978-97-008,True
+Vidas Secas,Graciliano Ramos,1938,Romance,978-85-009,True
+O Crime do Padre Amaro,Eça de Queirós,1875,Romance,978-97-010,False
+Capitães da Areia,Jorge Amado,1937,Romance,978-85-011,True
+Memorial do Convento,José Saramago,1982,Romance,978-97-012,True
+Iracema,José de Alencar,1865,Romance,978-85-013,True
+Livro do Desassossego,Fernando Pessoa,1982,Prosa Poética,978-97-014,False
+O Cortiço,Aluísio Azevedo,1890,Naturalismo,978-85-015,True
+Amor de Perdição,Camilo Castelo Branco,1862,Romance,978-97-016,True
+Macunaíma,Mário de Andrade,1928,Modernismo,978-85-017,True
+Os Maias,Eça de Queirós,1888,Romance,978-97-018,False
+Triste Fim de Policarpo Quaresma,Lima Barreto,1915,Pré-Modernismo,978-85-019,True
+Bichos,Miguel Torga,1940,Contos,978-97-020,True
+O Ateneu,Raul Pompeia,1888,Realismo,978-85-021,True
+Auto da Barca do Inferno,Gil Vicente,1517,Teatro,978-97-022,True
+Clara dos Anjos,Lima Barreto,1948,Romance,978-85-023,False
+A Ilustre Casa de Ramires,Eça de Queirós,1900,Romance,978-97-024,True
+Gabriela Cravo e Canela,Jorge Amado,1958,Romance,978-85-025,True
+O Ano da Morte de Ricardo Reis,José Saramago,1984,Romance,978-97-026,True
+A Paixão Segundo G.H.,Clarice Lispector,1964,Romance,978-85-027,False
+Sermões,Padre Antônio Vieira,1679,Oratória,978-97-028,True
+Morte e Vida Severina,João Cabral de Melo Neto,1955,Poesia,978-85-029,True
+Viagens na Minha Terra,Almeida Garrett,1846,Romance,978-97-030,True
+O Guarani,José de Alencar,1857,Romance,978-85-031,True
+A Relíquia,Eça de Queirós,1887,Romance,978-97-032,True
+Sagarana,Guimarães Rosa,1946,Contos,978-85-033,False
+Aparição,Vergílio Ferreira,1959,Romance,978-97-034,True
+Fogo Morto,José Lins do Rego,1943,Romance,978-85-035,True
+Mau Tempo no Canal,Vitorino Nemésio,1944,Romance,978-97-036,True
+Laços de Família,Clarice Lispector,1960,Contos,978-85-037,True
+Peregrinação,Fernão Mendes Pinto,1614,Memórias,978-97-038,True
+Quincas Borba,Machado de Assis,1891,Romance,978-85-039,False
+O Evangelho Segundo Jesus Cristo,José Saramago,1991,Romance,978-97-040,True
+O Quinze,Rachel de Queiroz,1930,Romance,978-85-041,True
+Frei Luís de Sousa,Almeida Garrett,1843,Teatro,978-97-042,True
+Menino de Engenho,José Lins do Rego,1932,Romance,978-85-043,True
+Caim,José Saramago,2009,Romance,978-97-044,True
+A Moreninha,Joaquim Manuel de Macedo,1844,Romance,978-85-045,False
+Levantado do Chão,José Saramago,1980,Romance,978-97-046,True
+Noite na Taverna,Álvares de Azevedo,1855,Contos,978-85-047,True
+Clepsidra,Camilo Pessanha,1920,Poesia,978-97-048,True
+Senhora,José de Alencar,1875,Romance,978-85-049,False
+Eurico o Presbítero,Alexandre Herculano,1844,Romance,978-97-050,True
+Os Sertões,Euclides da Cunha,1902,Sociologia,978-85-051,True
+Casa-Grande & Senzala,Gilberto Freyre,1933,Sociologia,978-85-052,False
+Raízes do Brasil,Sérgio Buarque de Holanda,1936,História,978-85-053,True
+Pedagogia do Oprimido,Paulo Freire,1968,Pedagogia,978-85-054,False
+O Povo Brasileiro,Darcy Ribeiro,1995,Antropologia,978-85-055,True
+Formação do Brasil Contemporâneo,Caio Prado Jr.,1942,História,978-85-056,True
+Geografia da Fome,Josué de Castro,1946,Geografia,978-85-057,False
+Os Donos do Poder,Raymundo Faoro,1958,Ciência Política,978-85-058,True
+A Integração do Negro na Sociedade de Classes,Florestan Fernandes,1965,Sociologia,978-85-059,True
+Por uma Outra Globalização,Milton Santos,2000,Geografia,978-85-060,True
+Quarto de Despejo,Carolina Maria de Jesus,1960,Diário,978-85-061,False
+O Continente,Érico Veríssimo,1949,Romance,978-85-062,True
+Sentimento do Mundo,Carlos Drummond de Andrade,1940,Poesia,978-85-063,True
+A Cidade e as Serras,Eça de Queirós,1901,Romance,978-97-064,False
+Memórias de um Sargento de Milícias,Manuel Antônio de Almeida,1854,Romance,978-85-065,True
+Os Cus de Judas,António Lobo Antunes,1979,Romance,978-97-066,True
+Romanceiro da Inconfidência,Cecília Meireles,1953,Poesia,978-85-067,True
+Tenda dos Milagres,Jorge Amado,1969,Romance,978-85-068,False
+A Sibila,Agustina Bessa-Luís,1954,Romance,978-97-069,True
+Agosto,Rubem Fonseca,1990,Policial,978-85-070,True
+Lavoura Arcaica,Raduan Nassar,1975,Romance,978-85-071,False
+O Auto da Compadecida,Ariano Suassuna,1955,Teatro,978-85-072,True
+Estrela da Vida Inteira,Manuel Bandeira,1966,Poesia,978-85-073,True
+Cânticos,Cesário Verde,1887,Poesia,978-97-074,True
+Dois Irmãos,Milton Hatoum,2000,Romance,978-85-075,True
+Torto Arado,Itamar Vieira Junior,2019,Romance,978-85-076,False
+A Máquina de Fazer Espanhóis,Valter Hugo Mãe,2010,Romance,978-97-077,True
+1808,Laurentino Gomes,2007,História,978-85-078,True
+O Alienista,Machado de Assis,1882,Conto,978-85-079,True
+Livro de Mágoas,Florbela Espanca,1919,Poesia,978-97-080,False
+A Menina do Mar,Sophia de Mello Breyner Andresen,1958,Infanto-juvenil,978-97-081,True
+O Encontro Marcado,Fernando Sabino,1956,Romance,978-85-082,True
+Feliz Ano Novo,Rubem Fonseca,1975,Contos,978-85-083,True
+Esaú e Jacó,Machado de Assis,1904,Romance,978-85-084,False
+Cidadania no Brasil,José Murilo de Carvalho,2001,História,978-85-085,True
+Olga,Fernando Morais,1985,Biografia,978-85-086,True
+Os Ratos,Dyonélio Machado,1935,Romance,978-85-087,True
+Morangos Mofados,Caio Fernando Abreu,1982,Contos,978-85-088,False
+Nenhum Olhar,José Luís Peixoto,2000,Romance,978-97-089,True
+Urupês,Monteiro Lobato,1918,Contos,978-85-090,True
+Jerusalém,Gonçalo M. Tavares,2004,Romance,978-97-091,True
+Toda Poesia,Paulo Leminski,2013,Poesia,978-85-092,True
+A Escrava Isaura,Bernardo Guimarães,1875,Romance,978-85-093,True
+O Mulato,Aluísio Azevedo,1881,Naturalismo,978-85-094,False
+Brasil: Uma Biografia,Lilia Schwarcz,2015,História,978-85-095,True
+Maurelicia,José Régio,1925,Poesia,978-97-096,True
+Antologia Poética,Vinicius de Moraes,1954,Poesia,978-85-097,True
+História Concisa do Brasil,Boris Fausto,2006,História,978-85-098,True
+O Seminarista,Bernardo Guimarães,1872,Romance,978-85-099,True
+Inocência,Visconde de Taunay,1872,Romance,978-85-100,False
+Terra Sonâmbula,Mia Couto,1992,Romance,978-97-101,True
+Mayombe,Pepetela,1980,Romance,978-97-102,True
+A Confissão de Lúcio,Mário de Sá-Carneiro,1914,Novela,978-97-103,False
+Navio Negreiro,Castro Alves,1869,Poesia,978-85-104,True
+Recordações do Escrivão Isaías Caminha,Lima Barreto,1909,Romance,978-85-105,True
+Vestido de Noiva,Nelson Rodrigues,1943,Teatro,978-85-106,True
+Broquéis,Cruz e Sousa,1893,Simbolismo,978-85-107,True
+Eu,Augusto dos Anjos,1912,Poesia,978-85-108,True
+Parque Industrial,Pagu,1933,Modernismo,978-85-109,False
+A Dança do Universo,Marcelo Gleiser,1997,Divulgação Científica,978-85-110,True
+O Cérebro Nosso de Cada Dia,Suzana Herculano-Houzel,2002,Neurociência,978-85-111,True
+Psicanálise da Maternidade,Virgínia Bicudo,1940,Psicologia,978-85-112,True
+Introdução à Lógica,Newton da Costa,1970,Matemática/Lógica,978-85-113,True
+Triste Visionário,Lima Barreto,1910,Crônicas,978-85-114,True
+A Teus Pés,Ana Cristina Cesar,1982,Poesia,978-85-115,False
+O Que É Isso Companheiro?,Fernando Gabeira,1979,Memórias,978-85-116,True
+Zero,Ignácio de Loyola Brandão,1974,Romance,978-85-117,True
+Viva o Povo Brasileiro,João Ubaldo Ribeiro,1984,Romance,978-85-118,True
+Ópera dos Mortos,Autran Dourado,1967,Romance,978-85-119,False
+A Morte e a Morte de Quincas Berro Dágua,Jorge Amado,1959,Novela,978-85-120,True
+O Homem que Calculava,Malba Tahan,1938,Matemática,978-85-121,True
+História da Alimentação no Brasil,Luís da Câmara Cascudo,1967,Sociologia,978-85-122,True
+Lira dos Vinte Anos,Álvares de Azevedo,1853,Poesia,978-85-123,False
+Poemas Completos de Alberto Caeiro,Fernando Pessoa,1914,Poesia,978-97-124,True
+Ode Marítima,Álvaro de Campos,1915,Poesia,978-97-125,True
+A Bagaceira,José Américo de Almeida,1928,Romance,978-85-126,True
+Fogo na Floresta,Mário Palmério,1965,Romance,978-85-127,True
+Vila dos Confins,Mário Palmério,1956,Romance,978-85-128,True
+O Coronel e o Lobisomem,José Cândido de Carvalho,1964,Romance,978-85-129,True
+Mar Morto,Jorge Amado,1936,Romance,978-85-130,False
+Dona Flor e Seus Dois Maridos,Jorge Amado,1966,Romance,978-85-131,True
+Tieta do Agreste,Jorge Amado,1977,Romance,978-85-132,True
+A Lua Vem da Ásia,Campos de Carvalho,1956,Surrealismo,978-85-133,True
+Perto do Coração Selvagem,Clarice Lispector,1943,Romance,978-85-134,True
+Água Viva,Clarice Lispector,1973,Ficção,978-85-135,False
+A Legião Estrangeira,Clarice Lispector,1964,Contos,978-85-136,True
+Sagarana,Guimarães Rosa,1946,Contos,978-85-137,True
+Manuelzão e Miguilim,Guimarães Rosa,1964,Novela,978-85-138,True
+Tutaméia,Guimarães Rosa,1967,Contos,978-85-139,False
+Primeiras Estórias,Guimarães Rosa,1962,Contos,978-85-140,True
+A Rosa do Povo,Carlos Drummond de Andrade,1945,Poesia,978-85-141,True
+Claro Enigma,Carlos Drummond de Andrade,1951,Poesia,978-85-142,True
+Boca do Inferno,Ana Miranda,1989,Romance Histórico,978-85-143,True
+A Casa das Sete Mulheres,Letícia Wierzchowski,2002,Romance Histórico,978-85-144,True
+Barba Ensopada de Sangue,Daniel Galera,2012,Romance,978-85-145,True
+O Filho Eterno,Cristóvão Tezza,2007,Romance,978-85-146,False
+Nove Noites,Bernardo Carvalho,2002,Romance,978-85-147,True
+Budapeste,Chico Buarque,2003,Romance,978-85-148,True
+Leite Derramado,Chico Buarque,2009,Romance,978-85-149,True
+K.,Bernardo Kucinski,2011,Romance,978-85-150,False

@@ -60,9 +60,9 @@ public class TelaCadastroUsuario {
         // criar o obj certo de acordo com a opçao
         Usuario novoUsuario;
         if (tipo == 1) {
-            novoUsuario = new Aluno(cpf, nome, dataNascimento);
+            novoUsuario = new Aluno(cpf, nome, dataNascimento, null, tipo);
         } else {
-            novoUsuario = new Professor(cpf, nome, dataNascimento);
+            novoUsuario = new Professor(cpf, nome, dataNascimento, null, tipo);
         }
 
         fachada.cadastrarUsuario(novoUsuario);

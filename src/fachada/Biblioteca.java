@@ -3,7 +3,7 @@ import dados.usuario.*;
 import negocio.entidades.Usuario;
 
 // fachada concentrando tudo pro main
-public class Biblioteca {
+public class Biblioteca implements IBiblioteca {
     private IRepositorioUsuarios repUsuarios;
 
     public Biblioteca() {

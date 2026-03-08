@@ -5,9 +5,6 @@ public class Livro {
     String titulo, autor, isbn;
     boolean status;
 
-    
-
-
     public Livro(int id, int ano, String titulo, String autor, String isbn, boolean status) {
         this.id = id;
         this.ano = ano;
@@ -17,7 +14,6 @@ public class Livro {
         this.status = status;
     }
 
-    
     public int getId() {return id;}
     public int getAno() {return ano;}
     public String getTitulo() {return titulo;}

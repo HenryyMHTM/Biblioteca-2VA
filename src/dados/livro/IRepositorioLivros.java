@@ -10,6 +10,8 @@ public interface IRepositorioLivros {
 
     Livro buscarPorIsbn(String isbn);
 
+    List<Livro> buscarPorTitulo(String titulo);
+
     void atualizar(Livro l);
 
     void remover(String isbn);

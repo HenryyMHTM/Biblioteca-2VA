@@ -42,6 +42,17 @@ public class RepositorioLivroCSV implements IRepositorioLivros {
     }
 
     @Override
+    public List<Livro> buscarPorTitulo(String titulo) {
+        List<Livro> livrosEncontrados = new ArrayList<>();
+        for (Livro l : livros) {
+            if (l.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
+                livrosEncontrados.add(l);
+            }
+        }
+        return livrosEncontrados;
+    }
+
+    @Override
     public void atualizar(Livro l) {
         // Quando o status de um livro muda (emprestou ou devolveu), 
         // a gente chama esse método para reescrever o arquivo.

@@ -15,6 +15,7 @@ public class TelaPrincipal {
             System.out.println("\n--- BIBLIOTECA ---"); 
             System.out.println("1. Entrar (Login)"); 
             System.out.println("2. Criar Conta (Cadastro)");
+            System.out.println("3. Consultar Acervo");
             System.out.println("0. Sair"); 
             System.out.print("Escolha uma opção: ");
 
@@ -23,6 +24,7 @@ public class TelaPrincipal {
                 opcao = Integer.parseInt(sc.nextLine());
                 if (opcao == 1) realizarLogin(fachada, sc);
                 else if (opcao == 2) new TelaCadastroUsuario().exibir(fachada);
+                else if (opcao == 3) new TelaConsultaAcervo().exibir(fachada);
             } catch (Exception e) { System.out.println("Opção inválida."); }
         }
     }

@@ -1,39 +1,64 @@
 package iu;
+import dados.usuario.RepositorioUsuariosCSV;
 import fachada.Biblioteca;
-import negocio.entidades.*;
 import java.util.Scanner;
+import negocio.entidades.Aluno;
+import negocio.entidades.Professor;
+import negocio.entidades.Usuario;
+import negocio.excecao.CPFApenasNumerosException;
+import negocio.excecao.CPFTamanhoException;
+import negocio.excecao.NomeApenasCaracteresException;
+import negocio.excecao.NomeTamanhoException;
+import negocio.excecao.UsuarioJaExisteException;
 
 public class TelaCadastroUsuario {
+    private RepositorioUsuariosCSV repositorio;
     
     public void exibir(Biblioteca fachada) {
         Scanner sc = new Scanner(System.in);
-        String nome = "";
-        String cpf = "";
-        String dataNascimento = "";
+        String nome;
+        String cpf;
+        String dataNascimento;
         int tipo = 0;
 
         System.out.println("\n--- CRIAR CONTA ---");
 
-        // barrar nome vazio
-        while (nome.trim().isEmpty()) {
-            System.out.print("Nome completo: ");
-            nome = sc.nextLine();
-            if (nome.trim().isEmpty()) {
-                System.out.println("Erro: O nome não pode ser vazio.");
-            }
-        }
-
-        // prender num loop ate vir 11 digitos
+        // Validação do Nome com Exceções
         while (true) {
-            System.out.print("CPF (apenas números): ");
-            cpf = sc.nextLine();
-            if (cpf.matches("[0-9]+") && cpf.length() == 11) {
-                break;
+            try {
+                System.out.print("Nome completo: ");
+                nome = sc.nextLine();
+                
+                if (nome.trim().length() < 3) {
+                    throw new NomeTamanhoException(nome);
+                }
+                if (!nome.matches("[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕçÇ ]+")) {
+                    throw new NomeApenasCaracteresException();
+                }
+                break; // Sai do loop se estiver tudo ok
+            } catch (NomeTamanhoException | NomeApenasCaracteresException e) {
+                System.out.println(e.getMessage());
             }
-            System.out.println("Erro: CPF inválido. Digite exatamente 11 números.");
         }
 
-        // validar basico do dd/mm/aaaa
+        //checa CPF usando exceções
+        while (true) {
+            try {
+                System.out.print("CPF (apenas 11 números): ");
+                cpf = sc.nextLine();
+
+                if (cpf.length() != 11) {
+                    throw new CPFTamanhoException(cpf);
+                }
+                if (!cpf.matches("[0-9]+")) {
+                    throw new CPFApenasNumerosException(cpf);
+                }
+                break;
+            } catch (CPFTamanhoException | CPFApenasNumerosException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        //validação de data de nascimento
         while (true) {
             System.out.print("Data de Nascimento (dd/mm/aaaa): ");
             dataNascimento = sc.nextLine();
@@ -42,8 +67,7 @@ public class TelaCadastroUsuario {
             }
             System.out.println("Erro: Formato incorreto. Use dd/mm/aaaa.");
         }
-
-        // try catch pra nao estourar se botarem letra no menu
+        //tipo de usuario
         while (tipo != 1 && tipo != 2) {
             System.out.print("Perfil (1 - Estudante, 2 - Professor): ");
             String entrada = sc.nextLine(); 
@@ -56,16 +80,19 @@ public class TelaCadastroUsuario {
                 System.out.println("Erro: Digite apenas o número.");
             }
         }
+        //salvamento via fachada
+        try {
+            Usuario novoUsuario;
+            if (tipo == 1) {
+                novoUsuario = new Aluno(cpf, nome, dataNascimento, 0.0);
+            } else {
+                novoUsuario = new Professor(cpf, nome, dataNascimento, 0.0);
+            }
 
-        // criar o obj certo de acordo com a opçao
-        Usuario novoUsuario;
-        if (tipo == 1) {
-            novoUsuario = new Aluno(cpf, nome, dataNascimento, null, tipo);
-        } else {
-            novoUsuario = new Professor(cpf, nome, dataNascimento, null, tipo);
+            fachada.cadastrarUsuario(novoUsuario);
+            System.out.println("\nConta criada com sucesso!");
+        } catch (UsuarioJaExisteException e) {
+            System.out.println(e.getMessage());
         }
-
-        fachada.cadastrarUsuario(novoUsuario);
-        System.out.println("Conta criada com sucesso!");
     }
 }

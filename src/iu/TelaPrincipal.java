@@ -1,6 +1,8 @@
 package iu;
 import fachada.Biblioteca;
 import java.util.Scanner;
+import negocio.entidades.Usuario;
+//import negocio.excecao.LivroNaoExisteException;
 
 public class TelaPrincipal {
 
@@ -8,38 +10,55 @@ public class TelaPrincipal {
         Scanner sc = new Scanner(System.in);
         int opcao = -1;
 
-        // loop do menu principal ate o cara digitar 0 [cite: 26]
+        // loop do menu principal ate o cara digitar 0
         while (opcao != 0) {
-            System.out.println("\n--- BIBLIOTECA ---"); // [cite: 23]
-            System.out.println("1. Entrar (Login)"); // [cite: 24]
-            System.out.println("2. Criar Conta (Cadastro)"); // [cite: 25]
-            System.out.println("0. Sair"); // [cite: 26]
-            System.out.print("Escolha uma opção: "); // [cite: 27]
+            System.out.println("\n--- BIBLIOTECA ---"); 
+            System.out.println("1. Entrar (Login)"); 
+            System.out.println("2. Criar Conta (Cadastro)");
+            System.out.println("0. Sair"); 
+            System.out.print("Escolha uma opção: ");
 
-            // try catch pra nao quebrar se botarem letra na opcao
+            
             try {
                 opcao = Integer.parseInt(sc.nextLine());
-
-                switch (opcao) {
-                    case 1:
-                        // Ramon q vai fazer o login dps 
-                        System.out.println("\n[Aviso: Área de login ainda em desenvolvimento]");
-                        break;
-                    case 2:
-                        // chama a tela de cadastro q a gente fez
-                        TelaCadastroUsuario telaCadastro = new TelaCadastroUsuario();
-                        telaCadastro.exibir(fachada);
-                        break;
-                    case 0:
-                        System.out.println("\nSaindo do sistema...");
-                        break;
-                    default:
-                        System.out.println("\nErro: Opção inválida. Tenta dnv.");
-                        break;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("\nErro: Digite apenas o número da opção.");
-            }
+                if (opcao == 1) realizarLogin(fachada, sc);
+                else if (opcao == 2) new TelaCadastroUsuario().exibir(fachada);
+            } catch (Exception e) { System.out.println("Opção inválida."); }
         }
     }
+
+    private void realizarLogin(Biblioteca fachada, Scanner sc) {
+        System.out.print("CPF: ");
+        String cpf = sc.nextLine();
+        System.out.print("Senha (Data Nasc.): ");
+        String pass = sc.nextLine();
+
+        try {
+            Usuario logado = fachada.login(cpf, pass);
+            menuLogado(fachada, logado, sc);
+        } catch (Exception e) { System.out.println(e.getMessage()); }
+    }
+
+    private void menuLogado(Biblioteca fachada, Usuario u, Scanner sc) {
+        int op = -1;
+        while (op != 0) {
+            System.out.println("\nBem-vindo, " + u.getNome());
+            System.out.println("1. Emprestar Livro\n2. Devolver Livro\n0. Logout");
+            try {
+                op = Integer.parseInt(sc.nextLine());
+                if (op == 1) {
+                    System.out.print("ISBN do Livro: ");
+                    fachada.emprestar(sc.nextLine(), u);
+                    System.out.println("Sucesso!");
+                } else if (op == 2) {
+                    System.out.print("ISBN do Livro: ");
+                    //parte para Matheus implementar (com comentário para não ficar com erro)
+                    //fachada.devolver(sc.nextLine(), u);
+                    System.out.println("Devolvido!");
+                }
+            } catch (Exception e) { System.out.println(e.getMessage()); }
+        }
+    }
+
+   
 }

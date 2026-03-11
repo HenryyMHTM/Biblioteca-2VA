@@ -51,4 +51,7 @@ public class Biblioteca implements IBiblioteca {
         return repLivros.buscarPorTitulo(titulo);
     }
     
+    public void devolverLivro(String isbn, Usuario u) throws Exception {
+        nLivro.devolverLivro(isbn, u);
+    }
 }

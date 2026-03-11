@@ -1,11 +1,6 @@
 package dados.livro;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -15,15 +10,12 @@ import negocio.entidades.Livro;
 public class RepositorioLivroCSV implements IRepositorioLivros {
     private List<Livro> livros;
     private final String CAMINHO_ARQUIVO = "livros.csv";
-    // O formatador de data diz ao Java como ler o padrão "dd/MM/yyyy"
     private final DateTimeFormatter FORMATO_DATA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public RepositorioLivroCSV() {
         this.livros = new ArrayList<>();
         carregarDoArquivo();
     }
-
-    // métodos CRUD da interface
 
     @Override
     public void adicionar(Livro l) {
@@ -33,29 +25,32 @@ public class RepositorioLivroCSV implements IRepositorioLivros {
 
     @Override
     public Livro buscarPorIsbn(String isbn) {
+        // limpa o que o cara digitou (tira traço e espaço)
+        String busca = isbn.replace("-", "").trim();
+        
         for (Livro l : livros) {
-            if (l.getIsbn().equals(isbn)) {
+            // limpa o isbn que veio do csv pra comparar igual
+            String isbnArquivo = l.getIsbn().replace("-", "").trim();
+            if (isbnArquivo.equalsIgnoreCase(busca)) {
                 return l;
             }
         }
-        return null; // Retorna nulo se não achar o livro
+        return null; 
     }
 
     @Override
     public List<Livro> buscarPorTitulo(String titulo) {
-        List<Livro> livrosEncontrados = new ArrayList<>();
+        List<Livro> encontrados = new ArrayList<>();
         for (Livro l : livros) {
             if (l.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
-                livrosEncontrados.add(l);
+                encontrados.add(l);
             }
         }
-        return livrosEncontrados;
+        return encontrados;
     }
 
     @Override
     public void atualizar(Livro l) {
-        // Quando o status de um livro muda (emprestou ou devolveu), 
-        // a gente chama esse método para reescrever o arquivo.
         salvarEmArquivo();
     }
 
@@ -73,76 +68,55 @@ public class RepositorioLivroCSV implements IRepositorioLivros {
         return this.livros;
     }
 
-    //métodos próprios da classe
-
     private void carregarDoArquivo() {
         File arquivo = new File(CAMINHO_ARQUIVO);
-        if (!arquivo.exists()) {
-            return;
-        }
+        if (!arquivo.exists()) return;
 
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
-            String linha = br.readLine(); // Pula o cabeçalho
+            br.readLine(); // pula o cabecalho
 
+            String linha;
             while ((linha = br.readLine()) != null) {
                 String[] dados = linha.split(",", -1);
 
+                // lendo as colunas na ordem certa do teu csv
                 String titulo = dados[0];
                 String autor = dados[1];
                 int ano = Integer.parseInt(dados[2]);
                 String isbn = dados[3];
                 boolean status = Boolean.parseBoolean(dados[4]);
+                String cpf = (dados[5].equalsIgnoreCase("null") || dados[5].isEmpty()) ? null : dados[5];
                 
-                String cpfLocatario = (dados[5].equalsIgnoreCase("null") || dados[5].isEmpty()) ? null : dados[5];
-                LocalDate dataDevolucao = null;
-
+                LocalDate data = null;
                 if (!dados[6].equalsIgnoreCase("null") && !dados[6].isEmpty()) {
-                    dataDevolucao = LocalDate.parse(dados[6], FORMATO_DATA);
+                    data = LocalDate.parse(dados[6], FORMATO_DATA);
                 }
 
-                Livro novoLivro = new Livro(titulo, autor, ano, isbn, status, cpfLocatario, dataDevolucao);
-                this.livros.add(novoLivro);
+  this.livros.add(new Livro(titulo, autor, ano, isbn, status, cpf, data));
             }
-            
-        } catch (IOException e) {
-            System.err.println("Erro ao ler arquivo de livros: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("Erro na formatação dos dados do livro: " + e.getMessage());
+            System.err.println("Erro ao carregar os livros: " + e.getMessage());
         }
     }
 
     private void salvarEmArquivo() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(CAMINHO_ARQUIVO, false))) {
-            
-            // Cabeçalho
-            bw.write("titulo,autor,ano,genero,isbn,status,cpfLocatario,dataDevolucao");
+            // tirei o 'genero' pra bater com teus dados
+            bw.write("titulo,autor,ano,isbn,status,cpfLocatario,dataDevolucao");
             bw.newLine();
 
             for (Livro l : livros) {
-                //Prepara o CPF para virar texto (se for nulo, vira a palavra "null")
-                String cpfParaSalvar = (l.getCpfLocatario() != null) ? l.getCpfLocatario() : "null";
-                
-                // Prepara a Data para virar texto
-                String dataParaSalvar = "null";
-                if (l.getDataDevolucao() != null) {
-                    dataParaSalvar = l.getDataDevolucao().format(FORMATO_DATA);
-                }
+                String cpf = (l.getCpfLocatario() != null) ? l.getCpfLocatario() : "null";
+                String data = (l.getDataDevolucao() != null) ? l.getDataDevolucao().format(FORMATO_DATA) : "null";
 
-                // Monta a linha
-                String linha = l.getTitulo() + "," +
-                               l.getAutor() + "," +
-                               l.getAno() + "," +
-                               l.getIsbn() + "," +
-                               l.isStatus() + "," + // O boolean no Java já imprime true ou false
-                               cpfParaSalvar + "," +
-                               dataParaSalvar;
+                String linha = l.getTitulo() + "," + l.getAutor() + "," + l.getAno() + "," + 
+                               l.getIsbn() + "," + l.isStatus() + "," + cpf + "," + data;
 
                 bw.write(linha);
                 bw.newLine();
             }
-            
         } catch (IOException e) {
-            System.err.println("Erro ao salvar arquivo de livros: " + e.getMessage());
+            System.err.println("Erro ao salvar: " + e.getMessage());
         }
     }
 }

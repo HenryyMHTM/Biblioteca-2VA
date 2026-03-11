@@ -1,151 +1,151 @@
 titulo,autor,ano,isbn,status,cpfLocatario,dataDevolucao
-Dom Casmurro,Machado de Assis,1899,978-85-001,True,null,null
-Os Lusíadas,Luís de Camões,1572,978-97-002,True,null,null
-Memórias Póstumas de Brás Cubas,Machado de Assis,1881,978-85-003,False,01234567890,15/03/2026
-O Primo Basílio,Eça de Queirós,1878,978-97-004,True,null,null
-Grande Sertão: Veredas,Guimarães Rosa,1956,978-85-005,True,null,null
-Ensaio Sobre a Cegueira,José Saramago,1995,978-97-006,False,01234567890,15/03/2026
-A Hora da Estrela,Clarice Lispector,1977,978-85-007,True,null,null
-Mensagem,Fernando Pessoa,1934,978-97-008,True,null,null
-Vidas Secas,Graciliano Ramos,1938,978-85-009,True,null,null
-O Crime do Padre Amaro,Eça de Queirós,1875,978-97-010,False,98765432100,06/03/2026
-Capitães da Areia,Jorge Amado,1937,978-85-011,True,null,null
-Memorial do Convento,José Saramago,1982,978-97-012,True,null,null
-Iracema,José de Alencar,1865,978-85-013,True,null,null
-Livro do Desassossego,Fernando Pessoa,1982,978-97-014,False,98765432100,06/03/2026
-O Cortiço,Aluísio Azevedo,1890,978-85-015,True,null,null
-Amor de Perdição,Camilo Castelo Branco,1862,978-97-016,True,null,null
-Macunaíma,Mário de Andrade,1928,978-85-017,True,null,null
-Os Maias,Eça de Queirós,1888,978-97-018,False,05544433322,12/03/2026
-Triste Fim de Policarpo Quaresma,Lima Barreto,1915,978-85-019,True,null,null
-Bichos,Miguel Torga,1940,978-97-020,True,null,null
-O Ateneu,Raul Pompeia,1888,978-85-021,True,null,null
-Auto da Barca do Inferno,Gil Vicente,1517,978-97-022,True,null,null
-Clara dos Anjos,Lima Barreto,1948,978-85-023,False,05544433322,12/03/2026
-A Ilustre Casa de Ramires,Eça de Queirós,1900,978-97-024,True,null,null
-Gabriela Cravo e Canela,Jorge Amado,1958,978-85-025,True,null,null
-O Ano da Morte de Ricardo Reis,José Saramago,1984,978-97-026,True,null,null
-A Paixão Segundo G.H.,Clarice Lispector,1964,978-85-027,False,05544433322,12/03/2026
-Sermões,Padre Antônio Vieira,1679,978-97-028,True,null,null
-Morte e Vida Severina,João Cabral de Melo Neto,1955,978-85-029,True,null,null
-Viagens na Minha Terra,Almeida Garrett,1846,978-97-030,True,null,null
-O Guarani,José de Alencar,1857,978-85-031,True,null,null
-A Relíquia,Eça de Queirós,1887,978-97-032,True,null,null
-Sagarana,Guimarães Rosa,1946,978-85-033,False,11122233344,03/03/2026
-Aparição,Vergílio Ferreira,1959,978-97-034,True,null,null
-Fogo Morto,José Lins do Rego,1943,978-85-035,True,null,null
-Mau Tempo no Canal,Vitorino Nemésio,1944,978-97-036,True,null,null
-Laços de Família,Clarice Lispector,1960,978-85-037,True,null,null
-Peregrinação,Fernão Mendes Pinto,1614,978-97-038,True,null,null
-Quincas Borba,Machado de Assis,1891,978-85-039,False,11122233344,03/03/2026
-O Evangelho Segundo Jesus Cristo,José Saramago,1991,978-97-040,True,null,null
-O Quinze,Rachel de Queiroz,1930,978-85-041,True,null,null
-Frei Luís de Sousa,Almeida Garrett,1843,978-97-042,True,null,null
-Menino de Engenho,José Lins do Rego,1932,978-85-043,True,null,null
-Caim,José Saramago,2009,978-97-044,True,null,null
-A Moreninha,Joaquim Manuel de Macedo,1844,978-85-045,False,09988877766,07/03/2026
-Levantado do Chão,José Saramago,1980,978-97-046,True,null,null
-Noite na Taverna,Álvares de Azevedo,1855,978-85-047,True,null,null
-Clepsidra,Camilo Pessanha,1920,978-97-048,True,null,null
-Senhora,José de Alencar,1875,978-85-049,False,09988877766,07/03/2026
-Eurico o Presbítero,Alexandre Herculano,1844,978-97-050,True,null,null
-Os Sertões,Euclides da Cunha,1902,978-85-051,True,null,null
-Casa-Grande & Senzala,Gilberto Freyre,1933,978-85-052,False,12312312312,20/03/2026
-Raízes do Brasil,Sérgio Buarque de Holanda,1936,978-85-053,True,null,null
-Pedagogia do Oprimido,Paulo Freire,1968,978-85-054,False,12312312312,20/03/2026
-O Povo Brasileiro,Darcy Ribeiro,1995,978-85-055,True,null,null
-Formação do Brasil Contemporâneo,Caio Prado Jr.,1942,978-85-056,True,null,null
-Geografia da Fome,Josué de Castro,1946,978-85-057,False,32132132132,18/03/2026
-Os Donos do Poder,Raymundo Faoro,1958,978-85-058,True,null,null
-A Integração do Negro na Sociedade de Classes,Florestan Fernandes,1965,978-85-059,True,null,null
-Por uma Outra Globalização,Milton Santos,2000,978-85-060,True,null,null
-Quarto de Despejo,Carolina Maria de Jesus,1960,978-85-061,False,32132132132,18/03/2026
-O Continente,Érico Veríssimo,1949,978-85-062,True,null,null
-Sentimento do Mundo,Carlos Drummond de Andrade,1940,978-85-063,True,null,null
-A Cidade e as Serras,Eça de Queirós,1901,978-97-064,False,32132132132,18/03/2026
-Memórias de um Sargento de Milícias,Manuel Antônio de Almeida,1854,978-85-065,True,null,null
-Os Cus de Judas,António Lobo Antunes,1979,978-97-066,True,null,null
-Romanceiro da Inconfidência,Cecília Meireles,1953,978-85-067,True,null,null
-Tenda dos Milagres,Jorge Amado,1969,978-85-068,False,32132132132,18/03/2026
-A Sibila,Agustina Bessa-Luís,1954,978-97-069,True,null,null
-Agosto,Rubem Fonseca,1990,978-85-070,True,null,null
-Lavoura Arcaica,Raduan Nassar,1975,978-85-071,False,45645645645,05/03/2026
-O Auto da Compadecida,Ariano Suassuna,1955,978-85-072,True,null,null
-Estrela da Vida Inteira,Manuel Bandeira,1966,978-85-073,True,null,null
-Cânticos,Cesário Verde,1887,978-97-074,True,null,null
-Dois Irmãos,Milton Hatoum,2000,978-85-075,True,null,null
-Torto Arado,Itamar Vieira Junior,2019,978-85-076,False,45645645645,05/03/2026
-A Máquina de Fazer Espanhóis,Valter Hugo Mãe,2010,978-97-077,True,null,null
-1808,Laurentino Gomes,2007,978-85-078,True,null,null
-O Alienista,Machado de Assis,1882,978-85-079,True,null,null
-Livro de Mágoas,Florbela Espanca,1919,978-97-080,False,65465465465,14/03/2026
-A Menina do Mar,Sophia de Mello Breyner Andresen,1958,978-97-081,True,null,null
-O Encontro Marcado,Fernando Sabino,1956,978-85-082,True,null,null
-Feliz Ano Novo,Rubem Fonseca,1975,978-85-083,True,null,null
-Esaú e Jacó,Machado de Assis,1904,978-85-084,False,65465465465,14/03/2026
-Cidadania no Brasil,José Murilo de Carvalho,2001,978-85-085,True,null,null
-Olga,Fernando Morais,1985,978-85-086,True,null,null
-Os Ratos,Dyonélio Machado,1935,978-85-087,True,null,null
-Morangos Mofados,Caio Fernando Abreu,1982,978-85-088,False,65465465465,14/03/2026
-Nenhum Olhar,José Luís Peixoto,2000,978-97-089,True,null,null
-Urupês,Monteiro Lobato,1918,978-85-090,True,null,null
-Jerusalém,Gonçalo M. Tavares,2004,978-97-091,True,null,null
-Toda Poesia,Paulo Leminski,2013,978-85-092,True,null,null
-A Escrava Isaura,Bernardo Guimarães,1875,978-85-093,True,null,null
-O Mulato,Aluísio Azevedo,1881,978-85-094,False,78978978978,02/03/2026
-Brasil: Uma Biografia,Lilia Schwarcz,2015,978-85-095,True,null,null
-Maurelicia,José Régio,1925,978-97-096,True,null,null
-Antologia Poética,Vinicius de Moraes,1954,978-85-097,True,null,null
-História Concisa do Brasil,Boris Fausto,2006,978-85-098,True,null,null
-O Seminarista,Bernardo Guimarães,1872,978-85-099,True,null,null
-Inocência,Visconde de Taunay,1872,978-85-100,False,78978978978,02/03/2026
-Terra Sonâmbula,Mia Couto,1992,978-97-101,True,null,null
-Mayombe,Pepetela,1980,978-97-102,True,null,null
-A Confissão de Lúcio,Mário de Sá-Carneiro,1914,978-97-103,False,78978978978,02/03/2026
-Navio Negreiro,Castro Alves,1869,978-85-104,True,null,null
-Recordações do Escrivão Isaías Caminha,Lima Barreto,1909,978-85-105,True,null,null
-Vestido de Noiva,Nelson Rodrigues,1943,978-85-106,True,null,null
-Broquéis,Cruz e Sousa,1893,978-85-107,True,null,null
-Eu,Augusto dos Anjos,1912,978-85-108,True,null,null
-Parque Industrial,Pagu,1933,978-85-109,False,98798798798,22/03/2026
-A Dança do Universo,Marcelo Gleiser,1997,978-85-110,True,null,null
-O Cérebro Nosso de Cada Dia,Suzana Herculano-Houzel,2002,978-85-111,True,null,null
-Psicanálise da Maternidade,Virgínia Bicudo,1940,978-85-112,True,null,null
-Introdução à Lógica,Newton da Costa,1970,978-85-113,True,null,null
-Triste Visionário,Lima Barreto,1910,978-85-114,True,null,null
-A Teus Pés,Ana Cristina Cesar,1982,978-85-115,False,14725836900,04/03/2026
-O Que É Isso Companheiro?,Fernando Gabeira,1979,978-85-116,True,null,null
-Zero,Ignácio de Loyola Brandão,1974,978-85-117,True,null,null
-Viva o Povo Brasileiro,João Ubaldo Ribeiro,1984,978-85-118,True,null,null
-Ópera dos Mortos,Autran Dourado,1967,978-85-119,False,14725836900,04/03/2026
-A Morte e a Morte de Quincas Berro Dágua,Jorge Amado,1959,978-85-120,True,null,null
-O Homem que Calculava,Malba Tahan,1938,978-85-121,True,null,null
-História da Alimentação no Brasil,Luís da Câmara Cascudo,1967,978-85-122,True,null,null
-Lira dos Vinte Anos,Álvares de Azevedo,1853,978-85-123,False,14725836900,04/03/2026
-Poemas Completos de Alberto Caeiro,Fernando Pessoa,1914,978-97-124,True,null,null
-Ode Marítima,Álvaro de Campos,1915,978-97-125,True,null,null
-A Bagaceira,José Américo de Almeida,1928,978-85-126,True,null,null
-Fogo na Floresta,Mário Palmério,1965,978-85-127,True,null,null
-Vila dos Confins,Mário Palmério,1956,978-85-128,True,null,null
-O Coronel e o Lobisomem,José Cândido de Carvalho,1964,978-85-129,True,null,null
-Mar Morto,Jorge Amado,1936,978-85-130,False,36925814700,25/03/2026
-Dona Flor e Seus Dois Maridos,Jorge Amado,1966,978-85-131,True,null,null
-Tieta do Agreste,Jorge Amado,1977,978-85-132,True,null,null
-A Lua Vem da Ásia,Campos de Carvalho,1956,978-85-133,True,null,null
-Perto do Coração Selvagem,Clarice Lispector,1943,978-85-134,True,null,null
-Água Viva,Clarice Lispector,1973,978-85-135,False,36925814700,25/03/2026
-A Legião Estrangeira,Clarice Lispector,1964,978-85-136,True,null,null
-Sagarana,Guimarães Rosa,1946,978-85-137,True,null,null
-Manuelzão e Miguilim,Guimarães Rosa,1964,978-85-138,True,null,null
-Tutaméia,Guimarães Rosa,1967,978-85-139,False,36925814700,25/03/2026
-Primeiras Estórias,Guimarães Rosa,1962,978-85-140,True,null,null
-A Rosa do Povo,Carlos Drummond de Andrade,1945,978-85-141,True,null,null
-Claro Enigma,Carlos Drummond de Andrade,1951,978-85-142,True,null,null
-Boca do Inferno,Ana Miranda,1989,978-85-143,True,null,null
-A Casa das Sete Mulheres,Letícia Wierzchowski,2002,978-85-144,True,null,null
-Barba Ensopada de Sangue,Daniel Galera,2012,978-85-145,True,null,null
-O Filho Eterno,Cristóvão Tezza,2007,978-85-146,False,15975345600,11/03/2026
-Nove Noites,Bernardo Carvalho,2002,978-85-147,True,null,null
-Budapeste,Chico Buarque,2003,978-85-148,True,null,null
-Leite Derramado,Chico Buarque,2009,978-85-149,True,null,null
-K.,Bernardo Kucinski,2011,978-85-150,False,75315945600,07/03/2026
+Dom Casmurro,Machado de Assis,1899,978-85-001,true,null,null
+Os Lusíadas,Luís de Camões,1572,978-97-002,true,null,null
+Memórias Póstumas de Brás Cubas,Machado de Assis,1881,978-85-003,false,01234567890,15/03/2026
+O Primo Basílio,Eça de Queirós,1878,978-97-004,true,null,null
+Grande Sertão: Veredas,Guimarães Rosa,1956,978-85-005,true,null,null
+Ensaio Sobre a Cegueira,José Saramago,1995,978-97-006,false,01234567890,15/03/2026
+A Hora da Estrela,Clarice Lispector,1977,978-85-007,true,null,null
+Mensagem,Fernando Pessoa,1934,978-97-008,true,null,null
+Vidas Secas,Graciliano Ramos,1938,978-85-009,true,null,null
+O Crime do Padre Amaro,Eça de Queirós,1875,978-97-010,false,98765432100,06/03/2026
+Capitães da Areia,Jorge Amado,1937,978-85-011,true,null,null
+Memorial do Convento,José Saramago,1982,978-97-012,true,null,null
+Iracema,José de Alencar,1865,978-85-013,true,null,null
+Livro do Desassossego,Fernando Pessoa,1982,978-97-014,false,98765432100,06/03/2026
+O Cortiço,Aluísio Azevedo,1890,978-85-015,true,null,null
+Amor de Perdição,Camilo Castelo Branco,1862,978-97-016,true,null,null
+Macunaíma,Mário de Andrade,1928,978-85-017,true,null,null
+Os Maias,Eça de Queirós,1888,978-97-018,false,05544433322,12/03/2026
+Triste Fim de Policarpo Quaresma,Lima Barreto,1915,978-85-019,true,null,null
+Bichos,Miguel Torga,1940,978-97-020,true,null,null
+O Ateneu,Raul Pompeia,1888,978-85-021,true,null,null
+Auto da Barca do Inferno,Gil Vicente,1517,978-97-022,true,null,null
+Clara dos Anjos,Lima Barreto,1948,978-85-023,false,05544433322,12/03/2026
+A Ilustre Casa de Ramires,Eça de Queirós,1900,978-97-024,true,null,null
+Gabriela Cravo e Canela,Jorge Amado,1958,978-85-025,true,null,null
+O Ano da Morte de Ricardo Reis,José Saramago,1984,978-97-026,true,null,null
+A Paixão Segundo G.H.,Clarice Lispector,1964,978-85-027,false,05544433322,12/03/2026
+Sermões,Padre Antônio Vieira,1679,978-97-028,true,null,null
+Morte e Vida Severina,João Cabral de Melo Neto,1955,978-85-029,true,null,null
+Viagens na Minha Terra,Almeida Garrett,1846,978-97-030,true,null,null
+O Guarani,José de Alencar,1857,978-85-031,true,null,null
+A Relíquia,Eça de Queirós,1887,978-97-032,true,null,null
+Sagarana,Guimarães Rosa,1946,978-85-033,false,11122233344,03/03/2026
+Aparição,Vergílio Ferreira,1959,978-97-034,true,null,null
+Fogo Morto,José Lins do Rego,1943,978-85-035,true,null,null
+Mau Tempo no Canal,Vitorino Nemésio,1944,978-97-036,true,null,null
+Laços de Família,Clarice Lispector,1960,978-85-037,true,null,null
+Peregrinação,Fernão Mendes Pinto,1614,978-97-038,true,null,null
+Quincas Borba,Machado de Assis,1891,978-85-039,false,11122233344,03/03/2026
+O Evangelho Segundo Jesus Cristo,José Saramago,1991,978-97-040,true,null,null
+O Quinze,Rachel de Queiroz,1930,978-85-041,true,null,null
+Frei Luís de Sousa,Almeida Garrett,1843,978-97-042,true,null,null
+Menino de Engenho,José Lins do Rego,1932,978-85-043,true,null,null
+Caim,José Saramago,2009,978-97-044,true,null,null
+A Moreninha,Joaquim Manuel de Macedo,1844,978-85-045,false,09988877766,07/03/2026
+Levantado do Chão,José Saramago,1980,978-97-046,true,null,null
+Noite na Taverna,Álvares de Azevedo,1855,978-85-047,true,null,null
+Clepsidra,Camilo Pessanha,1920,978-97-048,true,null,null
+Senhora,José de Alencar,1875,978-85-049,false,09988877766,07/03/2026
+Eurico o Presbítero,Alexandre Herculano,1844,978-97-050,true,null,null
+Os Sertões,Euclides da Cunha,1902,978-85-051,true,null,null
+Casa-Grande & Senzala,Gilberto Freyre,1933,978-85-052,false,12312312312,20/03/2026
+Raízes do Brasil,Sérgio Buarque de Holanda,1936,978-85-053,true,null,null
+Pedagogia do Oprimido,Paulo Freire,1968,978-85-054,false,12312312312,20/03/2026
+O Povo Brasileiro,Darcy Ribeiro,1995,978-85-055,true,null,null
+Formação do Brasil Contemporâneo,Caio Prado Jr.,1942,978-85-056,true,null,null
+Geografia da Fome,Josué de Castro,1946,978-85-057,false,32132132132,18/03/2026
+Os Donos do Poder,Raymundo Faoro,1958,978-85-058,true,null,null
+A Integração do Negro na Sociedade de Classes,Florestan Fernandes,1965,978-85-059,true,null,null
+Por uma Outra Globalização,Milton Santos,2000,978-85-060,true,null,null
+Quarto de Despejo,Carolina Maria de Jesus,1960,978-85-061,false,32132132132,18/03/2026
+O Continente,Érico Veríssimo,1949,978-85-062,true,null,null
+Sentimento do Mundo,Carlos Drummond de Andrade,1940,978-85-063,true,null,null
+A Cidade e as Serras,Eça de Queirós,1901,978-97-064,false,32132132132,18/03/2026
+Memórias de um Sargento de Milícias,Manuel Antônio de Almeida,1854,978-85-065,true,null,null
+Os Cus de Judas,António Lobo Antunes,1979,978-97-066,true,null,null
+Romanceiro da Inconfidência,Cecília Meireles,1953,978-85-067,true,null,null
+Tenda dos Milagres,Jorge Amado,1969,978-85-068,false,32132132132,18/03/2026
+A Sibila,Agustina Bessa-Luís,1954,978-97-069,true,null,null
+Agosto,Rubem Fonseca,1990,978-85-070,true,null,null
+Lavoura Arcaica,Raduan Nassar,1975,978-85-071,false,45645645645,05/03/2026
+O Auto da Compadecida,Ariano Suassuna,1955,978-85-072,true,null,null
+Estrela da Vida Inteira,Manuel Bandeira,1966,978-85-073,true,null,null
+Cânticos,Cesário Verde,1887,978-97-074,true,null,null
+Dois Irmãos,Milton Hatoum,2000,978-85-075,true,null,null
+Torto Arado,Itamar Vieira Junior,2019,978-85-076,false,45645645645,05/03/2026
+A Máquina de Fazer Espanhóis,Valter Hugo Mãe,2010,978-97-077,true,null,null
+1808,Laurentino Gomes,2007,978-85-078,true,null,null
+O Alienista,Machado de Assis,1882,978-85-079,true,null,null
+Livro de Mágoas,Florbela Espanca,1919,978-97-080,false,65465465465,14/03/2026
+A Menina do Mar,Sophia de Mello Breyner Andresen,1958,978-97-081,true,null,null
+O Encontro Marcado,Fernando Sabino,1956,978-85-082,true,null,null
+Feliz Ano Novo,Rubem Fonseca,1975,978-85-083,true,null,null
+Esaú e Jacó,Machado de Assis,1904,978-85-084,false,65465465465,14/03/2026
+Cidadania no Brasil,José Murilo de Carvalho,2001,978-85-085,true,null,null
+Olga,Fernando Morais,1985,978-85-086,true,null,null
+Os Ratos,Dyonélio Machado,1935,978-85-087,true,null,null
+Morangos Mofados,Caio Fernando Abreu,1982,978-85-088,false,65465465465,14/03/2026
+Nenhum Olhar,José Luís Peixoto,2000,978-97-089,true,null,null
+Urupês,Monteiro Lobato,1918,978-85-090,true,null,null
+Jerusalém,Gonçalo M. Tavares,2004,978-97-091,true,null,null
+Toda Poesia,Paulo Leminski,2013,978-85-092,true,null,null
+A Escrava Isaura,Bernardo Guimarães,1875,978-85-093,true,null,null
+O Mulato,Aluísio Azevedo,1881,978-85-094,false,78978978978,02/03/2026
+Brasil: Uma Biografia,Lilia Schwarcz,2015,978-85-095,true,null,null
+Maurelicia,José Régio,1925,978-97-096,true,null,null
+Antologia Poética,Vinicius de Moraes,1954,978-85-097,true,null,null
+História Concisa do Brasil,Boris Fausto,2006,978-85-098,true,null,null
+O Seminarista,Bernardo Guimarães,1872,978-85-099,true,null,null
+Inocência,Visconde de Taunay,1872,978-85-100,false,78978978978,02/03/2026
+Terra Sonâmbula,Mia Couto,1992,978-97-101,true,null,null
+Mayombe,Pepetela,1980,978-97-102,true,null,null
+A Confissão de Lúcio,Mário de Sá-Carneiro,1914,978-97-103,false,78978978978,02/03/2026
+Navio Negreiro,Castro Alves,1869,978-85-104,true,null,null
+Recordações do Escrivão Isaías Caminha,Lima Barreto,1909,978-85-105,true,null,null
+Vestido de Noiva,Nelson Rodrigues,1943,978-85-106,true,null,null
+Broquéis,Cruz e Sousa,1893,978-85-107,true,null,null
+Eu,Augusto dos Anjos,1912,978-85-108,true,null,null
+Parque Industrial,Pagu,1933,978-85-109,false,98798798798,22/03/2026
+A Dança do Universo,Marcelo Gleiser,1997,978-85-110,true,null,null
+O Cérebro Nosso de Cada Dia,Suzana Herculano-Houzel,2002,978-85-111,true,null,null
+Psicanálise da Maternidade,Virgínia Bicudo,1940,978-85-112,true,null,null
+Introdução à Lógica,Newton da Costa,1970,978-85-113,true,null,null
+Triste Visionário,Lima Barreto,1910,978-85-114,true,null,null
+A Teus Pés,Ana Cristina Cesar,1982,978-85-115,false,14725836900,04/03/2026
+O Que É Isso Companheiro?,Fernando Gabeira,1979,978-85-116,true,null,null
+Zero,Ignácio de Loyola Brandão,1974,978-85-117,true,null,null
+Viva o Povo Brasileiro,João Ubaldo Ribeiro,1984,978-85-118,true,null,null
+Ópera dos Mortos,Autran Dourado,1967,978-85-119,false,14725836900,04/03/2026
+A Morte e a Morte de Quincas Berro Dágua,Jorge Amado,1959,978-85-120,true,null,null
+O Homem que Calculava,Malba Tahan,1938,978-85-121,true,null,null
+História da Alimentação no Brasil,Luís da Câmara Cascudo,1967,978-85-122,true,null,null
+Lira dos Vinte Anos,Álvares de Azevedo,1853,978-85-123,false,14725836900,04/03/2026
+Poemas Completos de Alberto Caeiro,Fernando Pessoa,1914,978-97-124,true,null,null
+Ode Marítima,Álvaro de Campos,1915,978-97-125,true,null,null
+A Bagaceira,José Américo de Almeida,1928,978-85-126,true,null,null
+Fogo na Floresta,Mário Palmério,1965,978-85-127,true,null,null
+Vila dos Confins,Mário Palmério,1956,978-85-128,true,null,null
+O Coronel e o Lobisomem,José Cândido de Carvalho,1964,978-85-129,true,null,null
+Mar Morto,Jorge Amado,1936,978-85-130,false,36925814700,25/03/2026
+Dona Flor e Seus Dois Maridos,Jorge Amado,1966,978-85-131,true,null,null
+Tieta do Agreste,Jorge Amado,1977,978-85-132,true,null,null
+A Lua Vem da Ásia,Campos de Carvalho,1956,978-85-133,true,null,null
+Perto do Coração Selvagem,Clarice Lispector,1943,978-85-134,true,null,null
+Água Viva,Clarice Lispector,1973,978-85-135,false,36925814700,25/03/2026
+A Legião Estrangeira,Clarice Lispector,1964,978-85-136,true,null,null
+Sagarana,Guimarães Rosa,1946,978-85-137,true,null,null
+Manuelzão e Miguilim,Guimarães Rosa,1964,978-85-138,true,null,null
+Tutaméia,Guimarães Rosa,1967,978-85-139,false,36925814700,25/03/2026
+Primeiras Estórias,Guimarães Rosa,1962,978-85-140,true,null,null
+A Rosa do Povo,Carlos Drummond de Andrade,1945,978-85-141,true,null,null
+Claro Enigma,Carlos Drummond de Andrade,1951,978-85-142,true,null,null
+Boca do Inferno,Ana Miranda,1989,978-85-143,true,null,null
+A Casa das Sete Mulheres,Letícia Wierzchowski,2002,978-85-144,true,null,null
+Barba Ensopada de Sangue,Daniel Galera,2012,978-85-145,true,null,null
+O Filho Eterno,Cristóvão Tezza,2007,978-85-146,false,15975345600,11/03/2026
+Nove Noites,Bernardo Carvalho,2002,978-85-147,true,null,null
+Budapeste,Chico Buarque,2003,978-85-148,false,12345678910,18/03/2026
+Leite Derramado,Chico Buarque,2009,978-85-149,true,null,null
+K.,Bernardo Kucinski,2011,978-85-150,false,75315945600,07/03/2026

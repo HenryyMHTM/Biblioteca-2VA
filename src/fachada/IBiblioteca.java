@@ -17,4 +17,5 @@ public interface IBiblioteca {
     public List<Livro> buscarLivroPorTitulo(String titulo);
     public void pagarMulta(Usuario u);
     void atualizarUsuario(Usuario u);
+    List<Livro> listarDisponiveis();
 }

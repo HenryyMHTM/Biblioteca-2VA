@@ -1,8 +1,8 @@
 package iu;
 import fachada.Biblioteca;
-import negocio.entidades.Livro;
 import java.util.List;
 import java.util.Scanner;
+import negocio.entidades.Livro;
 
 public class TelaConsultaAcervo {
 
@@ -23,7 +23,7 @@ public class TelaConsultaAcervo {
                 opcao = Integer.parseInt(sc.nextLine());
 
                 if (opcao == 1) {
-                    List<Livro> todos = fachada.listarTodosLivros();
+                    List<Livro> todos = fachada.listarLivros();
                     if (todos.isEmpty()) System.out.println("O acervo está vazio.");
                     else for (Livro l : todos) imprimirLivro(l);
                 } 

@@ -37,7 +37,12 @@ public class Biblioteca implements IBiblioteca {
     
     @Override
     public List<Livro> listarLivros() {
-        return nLivro.listarDisponiveis();
+        return nLivro.listarTodos();
+    }
+
+    @Override
+    public List<Livro> listarDisponiveis() {
+        return nLivro.listarDisponiveis(); //apenas disponiveis
     }
 
     @Override
@@ -62,10 +67,7 @@ public class Biblioteca implements IBiblioteca {
             }
         }
     }
-// repasse dos metodos de buscar acervo
-    public List<Livro> listarTodosLivros() {
-        return nLivro.listarTodos();
-    }
+
 
     @Override
     public Livro buscarLivroPorIsbn(String isbn) {

@@ -2,6 +2,7 @@ package negocio;
 
 import dados.livro.IRepositorioLivros;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import negocio.entidades.*;
 import negocio.excecao.*;
@@ -14,9 +15,18 @@ public class NegocioLivro {
     }
 
     public List<Livro> listarDisponiveis() {
-        return repo.listarTodos();
+        List<Livro> todos = repo.listarTodos(); //pega todos os livros do CSV
+        List<Livro> disponiveis = new ArrayList<>();
+
+        for (Livro l : todos) {
+            //caso o status for true, o livro está disponivel
+            if (l.isStatus()) { 
+                disponiveis.add(l);
+            }
+        }
+        return disponiveis;
     }
-    //método usado para sincronizar com a conta
+    
     public List<Livro> listarTodos() {
         return repo.listarTodos(); //carrega a busca para o repositório
     }
@@ -56,6 +66,7 @@ public class NegocioLivro {
         
         // joga as mudancas pro arquivo
         repo.atualizar(l);
+        u.adicionarLivro(l);
     }
 
     public void devolverLivro(String isbn, Usuario u) throws LivroNaoExisteException, LivroNaoEmprestadoException, LivroJaEmprestadoException {

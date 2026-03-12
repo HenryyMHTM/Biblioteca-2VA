@@ -1,15 +1,12 @@
 package iu;
 import fachada.Biblioteca;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Scanner;
 import negocio.entidades.Livro;
 import negocio.entidades.Usuario;
 import negocio.excecao.CPFApenasNumerosException;
 import negocio.excecao.CPFTamanhoException;
-import negocio.excecao.LimiteLivrosExcedidosException;
-import negocio.excecao.LivroNaoExisteException;
-import negocio.excecao.MultaPendenteException;
 
 public class TelaPrincipal {
 
@@ -29,9 +26,13 @@ public class TelaPrincipal {
             
             try {
                 opcao = Integer.parseInt(sc.nextLine());
-                if (opcao == 1) realizarLogin(fachada, sc);
-                else if (opcao == 2) new TelaCadastroUsuario().exibir(fachada);
-                else if (opcao == 3) new TelaConsultaAcervo().exibir(fachada);
+                switch (opcao) {
+                    case 1 -> realizarLogin(fachada, sc);
+                    case 2 -> new TelaCadastroUsuario().exibir(fachada);
+                    case 3 -> new TelaConsultaAcervo().exibir(fachada);
+                    default -> {
+                    }
+                }
             } catch (Exception e) { System.out.println("Opção inválida."); }
         }
     }
@@ -50,7 +51,7 @@ public class TelaPrincipal {
         } catch (Exception e) { System.out.println(e.getMessage()); }
     }
 
- private void menuLogado(Biblioteca fachada, Usuario u, Scanner sc) {
+    private void menuLogado(Biblioteca fachada, Usuario u, Scanner sc) {
         int op = -1;
         while (op != 0) {
             String perfil = (u instanceof negocio.entidades.Aluno) ? "Aluno" : "Professor";
@@ -96,26 +97,8 @@ public class TelaPrincipal {
                         sc.nextLine();
                     }
                     case 2 -> verificarMultas(fachada, u, sc);
-                    case 3 -> {
-                        System.out.println("\n--- NOVO EMPRÉSTIMO ---");
-                        // ja era o limite
-                        if (u.getQuantidadeLivros() >= u.getLimiteEmprestimo()) {
-                            throw new LimiteLivrosExcedidosException(u.getQuantidadeLivros(), u.getLimiteEmprestimo());
-                        }   // ve se o cara ta devendo ou com livro atrasado
-                        boolean temAtraso = false;
-                        for (Livro l : u.getLivrosEmprestados()) {
-                            if (l.getDataDevolucao() != null && LocalDate.now().isAfter(l.getDataDevolucao())) {
-                                temAtraso = true;
-                                break;
-                            }
-                        }   if (temAtraso || u.getMultaAcumulada() > 0) {
-                            throw new MultaPendenteException(u.getMultaAcumulada());
-                        }   int podePegar = u.getLimiteEmprestimo() - u.getQuantidadeLivros();
-                        System.out.println("Status: Tu tem " + u.getQuantidadeLivros() + " livros. Pode pegar mais " + podePegar + ".");
-                        System.out.print("\nISBN do livro: ");
-                        fachada.emprestar(sc.nextLine(), u);
-                        System.out.println("SUCESSO! Reservado.");
-                    }
+                    case 3 -> emprestarLivro(fachada, u, sc);
+                    
                     case 4 -> devolverLivro(fachada, u, sc);
                     default -> {
                     }
@@ -141,29 +124,95 @@ public class TelaPrincipal {
         }
     }
 
+    private void emprestarLivro(Biblioteca fachada, Usuario u, Scanner sc) {
+        System.out.println("\n--- PEGAR NOVO LIVRO ---");
+        try {
+            List<Livro> disponiveis = fachada.listarLivros(); 
+            if (disponiveis.isEmpty()) {
+                System.out.println("Não há livros disponíveis no momento.");
+                return;
+            }
+
+            //exibe a lista com índice
+            for (int i = 0; i < disponiveis.size(); i++) {
+                System.out.println((i + 1) + ". " + disponiveis.get(i).getTitulo());
+            }
+            System.out.println("0. Voltar");
+            System.out.print("Escolha o número do livro: ");
+
+            int escolha = Integer.parseInt(sc.nextLine());
+
+            if (escolha == 0) return;
+
+            if (escolha > 0 && escolha <= disponiveis.size()) {
+                //pega o isbn do livro
+                String isbnSelecionado = disponiveis.get(escolha - 1).getIsbn();
+                //valida a situação do usuário para o emprestimo
+                fachada.emprestar(isbnSelecionado, u);
+
+                System.out.println("\nEmpréstimo realizado com sucesso!");
+                System.out.println("O livro '" + disponiveis.get(escolha - 1).getTitulo() + "' agora está com você.");
+            } else {
+                System.out.println("Opção inválida.");
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Digite apenas o número da opção.");
+        } catch (Exception e) {
+            System.out.println("\n[!] Não foi possível realizar o empréstimo: " + e.getMessage());
+        }
+    }
+
     private void devolverLivro(Biblioteca fachada, Usuario u, Scanner sc) {
         System.out.println("\n--- DEVOLUÇÃO DE LIVRO ---");
-        System.out.print("Digite o ISBN do livro: ");
-        String isbn = sc.nextLine();
+
+        //checa se o usuário tem livros para devolução
+        List<Livro> meusLivros = u.getLivrosEmprestados(); //
+
+        if (meusLivros.isEmpty()) {
+            System.out.println("Você não possui livros pendentes de devolução.");
+            return;
+        }
+
+        //faz uma lista de livros com índices
+        System.out.println("Selecione o livro que deseja devolver:");
+        for (int i = 0; i < meusLivros.size(); i++) {
+            Livro l = meusLivros.get(i); //
+            System.out.println((i + 1) + ". " + l.getTitulo() + " (ISBN: " + l.getIsbn() + ")");
+        }
+        System.out.println("0. Cancelar");
+        System.out.print("Escolha: ");
 
         try {
-            fachada.devolverLivro(isbn, u); 
-            System.out.println("Livro devolvido com sucesso!");
+            int escolha = Integer.parseInt(sc.nextLine());
 
-            //oferece o pagamento caso o usuário tenha multa após devolução
-            if (u.getMultaAcumulada() > 0) {
-                System.out.printf("\nATENÇÃO: Você possui R$ %.2f em multas.\n", u.getMultaAcumulada());
-                System.out.print("Deseja quitar esse valor agora? (S/N): ");
-                
-                if (sc.nextLine().equalsIgnoreCase("S")) {
-                    fachada.pagarMulta(u);
-                    System.out.println("Multa paga! Seu saldo foi zerado.");
+            if (escolha == 0) return;
+
+            if (escolha > 0 && escolha <= meusLivros.size()) {
+                //pega o ISBN automaticamente com base na escolha
+                String isbnSelecionado = meusLivros.get(escolha - 1).getIsbn(); 
+
+                //faz a devolução
+                fachada.devolverLivro(isbnSelecionado, u); //
+                System.out.println("Livro devolvido com sucesso!");
+
+                // Oferece o pagamento de multa se houver (lógica que discutimos antes)
+                if (u.getMultaAcumulada() > 0) {
+                     System.out.printf("\nATENÇÃO: Você possui R$ %.2f em multas.\n", u.getMultaAcumulada());
+                    System.out.print("Deseja quitar esse valor agora? (S/N): ");
+                    
+                    if (sc.nextLine().equalsIgnoreCase("S")) {
+                        fachada.pagarMulta(u);
+                        System.out.println("Multa paga! Seu saldo foi zerado.");
+                    }
                 }
+            } else {
+                System.out.println("Opção inválida.");
             }
-        } catch (LivroNaoExisteException e) {
-            System.out.println("Erro: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Digite apenas o número da opção.");
         } catch (Exception e) {
-            System.out.println("Erro inesperado: " + e.getMessage());
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 }

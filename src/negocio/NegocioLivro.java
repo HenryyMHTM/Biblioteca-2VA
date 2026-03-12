@@ -69,25 +69,23 @@ public class NegocioLivro {
         u.adicionarLivro(l);
     }
 
-    public void devolverLivro(String isbn, Usuario u) throws LivroNaoExisteException, LivroNaoEmprestadoException, LivroJaEmprestadoException {
+    public void devolverLivro(String isbn, Usuario u) throws LivroNaoExisteException, LivroNaoEmprestadoException,
+     LivroJaEmprestadoException {
         Livro l = repo.buscarPorIsbn(isbn);
         LocalDate hoje = LocalDate.now();
         // checa se o livro existe mesmo
         if (l == null) throw new LivroNaoExisteException(); 
         // ve se o livro ja nao tava livre
         if (l.isStatus()) {
-            throw new LivroNaoEmprestadoException();
+            throw new LivroNaoEmprestadoException();// trava se o cara tentar devolver o livro de outro
         }
-        // trava se o cara tentar devolver o livro de outro
         if (l.getCpfLocatario() != null && !l.getCpfLocatario().equals(u.getCpf())) {
             throw new LivroJaEmprestadoException();
         }
-
         if (l.getDataDevolucao() != null && hoje.isAfter(l.getDataDevolucao())) {
             long diasAtraso = java.time.temporal.ChronoUnit.DAYS.between(l.getDataDevolucao(), hoje);
             double valorDaMulta = diasAtraso * 2.0; // R$ 2,00 por dia
-            
-            // 2. Acumula o valor no objeto usuário (que será salvo depois)
+            //acumula o valor no objeto usuário (que será salvo depois)
             u.setMultaAcumulada(u.getMultaAcumulada() + valorDaMulta);
             System.out.println("Devolução com atraso! Multa de R$ " + valorDaMulta + " aplicada ao perfil.");
         }

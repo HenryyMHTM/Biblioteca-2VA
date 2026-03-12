@@ -1,14 +1,20 @@
 package iu;
 import dados.usuario.RepositorioUsuariosCSV;
 import fachada.Biblioteca;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import negocio.entidades.Aluno;
 import negocio.entidades.Professor;
 import negocio.entidades.Usuario;
 import negocio.excecao.CPFApenasNumerosException;
 import negocio.excecao.CPFTamanhoException;
+import negocio.excecao.DataNascimentoInvalidaException;
+import negocio.excecao.FormatoDataNascimentoException;
 import negocio.excecao.NomeApenasCaracteresException;
 import negocio.excecao.NomeTamanhoException;
+import negocio.excecao.PerfilUsuarioInexistenteException;
 import negocio.excecao.UsuarioJaExisteException;
 
 public class TelaCadastroUsuario {
@@ -47,7 +53,7 @@ public class TelaCadastroUsuario {
                 System.out.print("CPF (apenas 11 números): ");
                 cpf = sc.nextLine();
 
-                if (cpf.length() != 11) {
+                if (cpf.length() != 11 && cpf.matches("[0-9]+")) {
                     throw new CPFTamanhoException(cpf);
                 }
                 if (!cpf.matches("[0-9]+")) {
@@ -61,11 +67,25 @@ public class TelaCadastroUsuario {
         //validação de data de nascimento
         while (true) {
             System.out.print("Data de Nascimento (dd/mm/aaaa): ");
+            
             dataNascimento = sc.nextLine();
-            if (dataNascimento.length() == 10 && dataNascimento.contains("/")) {
+            
+
+            try {
+                if (dataNascimento.length() != 10 && !dataNascimento.contains("/")){
+                    throw new FormatoDataNascimentoException(dataNascimento);
+                }
+                LocalDate dataNascC = LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                LocalDate hoje = LocalDate.now();
+                if (Period.between(dataNascC, hoje).getYears() < 15) {
+                    throw new DataNascimentoInvalidaException(dataNascimento); 
+                }
+                
                 break;
+
+            } catch (DataNascimentoInvalidaException | FormatoDataNascimentoException e) {
+                System.out.println(e.getMessage()); 
             }
-            System.out.println("Erro: Formato incorreto. Use dd/mm/aaaa.");
         }
         //tipo de usuario
         while (tipo != 1 && tipo != 2) {
@@ -74,10 +94,10 @@ public class TelaCadastroUsuario {
             try {
                 tipo = Integer.parseInt(entrada);
                 if (tipo != 1 && tipo != 2) {
-                    System.out.println("Erro: Escolha a opção 1 ou 2.");
+                    throw new PerfilUsuarioInexistenteException(entrada);
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Erro: Digite apenas o número.");
+            } catch ( PerfilUsuarioInexistenteException e) {
+                System.out.println(e.getMessage());
             }
         }
         //salvamento via fachada

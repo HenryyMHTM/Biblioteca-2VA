@@ -1,7 +1,6 @@
 package dados.livro;
 
 import java.util.List;
-
 import negocio.entidades.Livro;
 
 public interface IRepositorioLivros {
@@ -17,5 +16,6 @@ public interface IRepositorioLivros {
     void remover(String isbn);
 
     List<Livro> listarTodos();
+    
 
 }

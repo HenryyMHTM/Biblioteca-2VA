@@ -1,14 +1,15 @@
 package iu;
 import fachada.Biblioteca;
-import java.util.Scanner;
-import negocio.entidades.Usuario;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
 import negocio.entidades.Livro;
+import negocio.entidades.Usuario;
+import negocio.excecao.CPFApenasNumerosException;
+import negocio.excecao.CPFTamanhoException;
 import negocio.excecao.LimiteLivrosExcedidosException;
+import negocio.excecao.LivroNaoExisteException;
 import negocio.excecao.MultaPendenteException;
-//import negocio.excecao.LivroNaoExisteException;
 
 public class TelaPrincipal {
 
@@ -35,9 +36,11 @@ public class TelaPrincipal {
         }
     }
 
-    private void realizarLogin(Biblioteca fachada, Scanner sc) {
+    private void realizarLogin(Biblioteca fachada, Scanner sc) throws CPFTamanhoException, CPFApenasNumerosException {
         System.out.print("CPF: ");
         String cpf = sc.nextLine();
+        
+        
         System.out.print("Senha (Data Nasc.): ");
         String pass = sc.nextLine();
 
@@ -53,14 +56,14 @@ public class TelaPrincipal {
             String perfil = (u instanceof negocio.entidades.Aluno) ? "Aluno" : "Professor";
             
             System.out.println("\n========================================");
-            System.out.println("      MENU: " + u.getNome());
+            System.out.println("      MENU " + u.getNome());
             System.out.println("      Perfil: " + perfil);
             System.out.println("========================================");
             System.out.printf("Saldo de Multas: R$ %.2f\n", u.getMultaAcumulada());
             System.out.println("Livros em posse: " + u.getQuantidadeLivros() + " de " + u.getLimiteEmprestimo());
             System.out.println();
             System.out.println("1. Ver meus livros emprestados");
-            System.out.println("2. Verificar atrasos e multas");
+            System.out.println("2. Verificar atrasos e Pagar Multas");
             System.out.println("3. Pegar novo livro (Empréstimo)");
             System.out.println("4. Devolver um livro");
             System.out.println("0. Sair (Logout)");
@@ -70,113 +73,97 @@ public class TelaPrincipal {
             try {
                 op = Integer.parseInt(sc.nextLine());
                 
-                if (op == 1) {
-                    System.out.println("\n--- MEUS EMPRÉSTIMOS ---");
-                    if (u.getLivrosEmprestados().isEmpty()) {
-                        System.out.println("Tu não tem nenhum livro agora.");
-                    } else {
-                        System.out.println("------------------------------------------------------------");
-                        System.out.printf("%-25s | %-14s | %s\n", "TÍTULO", "ISBN", "DATA DEVOLUÇÃO");
-                        System.out.println("------------------------------------------------------------");
-                        
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                switch (op) {
+                    case 1 -> {
+                        System.out.println("\n--- MEUS EMPRÉSTIMOS ---");
+                        if (u.getLivrosEmprestados().isEmpty()) {
+                            System.out.println("Tu não tem nenhum livro agora.");
+                        } else {
+                            System.out.println("------------------------------------------------------------");
+                            System.out.printf("%-25s | %-14s | %s\n", "TÍTULO", "ISBN", "DATA DEVOLUÇÃO");
+                            System.out.println("------------------------------------------------------------");
+                            
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                            for (Livro l : u.getLivrosEmprestados()) {
+                                String dataStr = (l.getDataDevolucao() != null) ? l.getDataDevolucao().format(formatter) : "N/A";
+                                String titulo = l.getTitulo();
+                                if (titulo.length() > 22) titulo = titulo.substring(0, 19) + "...";
+                                 
+                                System.out.printf("%-25s | %-14s | %s\n", titulo, l.getIsbn(), dataStr);
+                            }
+                            System.out.println("------------------------------------------------------------");
+                        }   System.out.print("\nEnter pra voltar.");
+                        sc.nextLine();
+                    }
+                    case 2 -> verificarMultas(fachada, u, sc);
+                    case 3 -> {
+                        System.out.println("\n--- NOVO EMPRÉSTIMO ---");
+                        // ja era o limite
+                        if (u.getQuantidadeLivros() >= u.getLimiteEmprestimo()) {
+                            throw new LimiteLivrosExcedidosException(u.getQuantidadeLivros(), u.getLimiteEmprestimo());
+                        }   // ve se o cara ta devendo ou com livro atrasado
+                        boolean temAtraso = false;
                         for (Livro l : u.getLivrosEmprestados()) {
-                            String dataStr = (l.getDataDevolucao() != null) ? l.getDataDevolucao().format(formatter) : "N/A";
-                            String titulo = l.getTitulo();
-                            if (titulo.length() > 22) titulo = titulo.substring(0, 19) + "...";
-                            
-                            System.out.printf("%-25s | %-14s | %s\n", titulo, l.getIsbn(), dataStr);
-                        }
-                        System.out.println("------------------------------------------------------------");
+                            if (l.getDataDevolucao() != null && LocalDate.now().isAfter(l.getDataDevolucao())) {
+                                temAtraso = true;
+                                break;
+                            }
+                        }   if (temAtraso || u.getMultaAcumulada() > 0) {
+                            throw new MultaPendenteException(u.getMultaAcumulada());
+                        }   int podePegar = u.getLimiteEmprestimo() - u.getQuantidadeLivros();
+                        System.out.println("Status: Tu tem " + u.getQuantidadeLivros() + " livros. Pode pegar mais " + podePegar + ".");
+                        System.out.print("\nISBN do livro: ");
+                        fachada.emprestar(sc.nextLine(), u);
+                        System.out.println("SUCESSO! Reservado.");
                     }
-                    System.out.print("\nEnter pra voltar.");
-                    sc.nextLine(); 
+                    case 4 -> devolverLivro(fachada, u, sc);
+                    default -> {
+                    }
                 }
-                else if (op == 2) {
-                    System.out.println("\n--- STATUS DE MULTAS ---");
-                    double totalMultaAtiva = 0.0;
-                    boolean temAtraso = false;
-                    
-                    for (Livro l : u.getLivrosEmprestados()) {
-                        // calculando o atraso de cada livro
-                        if (l.getDataDevolucao() != null && LocalDate.now().isAfter(l.getDataDevolucao())) {
-                            temAtraso = true;
-                            long diasAtraso = ChronoUnit.DAYS.between(l.getDataDevolucao(), LocalDate.now());
-                            double multaLivro = diasAtraso * 2.0; 
-                            totalMultaAtiva += multaLivro;
-                            
-                            System.out.println("Livro: " + l.getTitulo());
-                            System.out.println("Atraso: " + diasAtraso + " dias");
-                            System.out.printf("Multa deste livro: R$ %.2f\n", multaLivro);
-                            System.out.println("----------------------------------");
-                        }
-                    }
-                    
-                    double multaTotalGeral = u.getMultaAcumulada() + totalMultaAtiva;
-                    System.out.printf("Total de Multa Pendente: R$ %.2f\n", multaTotalGeral);
-                    
-                    System.out.print("\nEnter pra voltar.");
-                    sc.nextLine(); 
-                }
-                else if (op == 3) {
-                    System.out.println("\n--- NOVO EMPRÉSTIMO ---");
-                    
-                    // ja era o limite
-                    if (u.getQuantidadeLivros() >= u.getLimiteEmprestimo()) {
-                        throw new LimiteLivrosExcedidosException(u.getQuantidadeLivros(), u.getLimiteEmprestimo());
-                    }
-                    
-                    // ve se o cara ta devendo ou com livro atrasado
-                    boolean temAtraso = false;
-                    for (Livro l : u.getLivrosEmprestados()) {
-                        if (l.getDataDevolucao() != null && LocalDate.now().isAfter(l.getDataDevolucao())) {
-                            temAtraso = true;
-                            break;
-                        }
-                    }
-                    if (temAtraso || u.getMultaAcumulada() > 0) {
-                        throw new MultaPendenteException(u.getMultaAcumulada());
-                    }
-                    
-                    int podePegar = u.getLimiteEmprestimo() - u.getQuantidadeLivros();
-                    System.out.println("Status: Tu tem " + u.getQuantidadeLivros() + " livros. Pode pegar mais " + podePegar + ".");
-                    System.out.print("\nISBN do livro: ");
-                    fachada.emprestar(sc.nextLine(), u);
-                    System.out.println("SUCESSO! Reservado.");
-                } 
-                else if (op == 4) {
-                    System.out.println("\n--- DEVOLUÇÃO DE MATERIAL ---");
-                    System.out.print("ISBN do livro: ");
-                    String isbnDevolucao = sc.nextLine();
-                    
-                    Livro livroPraDevolver = null;
-                    for (Livro l : u.getLivrosEmprestados()) {
-                        if (l.getIsbn().trim().equalsIgnoreCase(isbnDevolucao.trim())) {
-                            livroPraDevolver = l;
-                            break;
-                        }
-                    }
-                    
-                    System.out.println("[Verificando data...]");
-                    
-                    if (livroPraDevolver != null && livroPraDevolver.getDataDevolucao() != null) {
-                        // facada da multa se passar do prazo
-                        if (LocalDate.now().isAfter(livroPraDevolver.getDataDevolucao())) {
-                            long diasAtraso = ChronoUnit.DAYS.between(livroPraDevolver.getDataDevolucao(), LocalDate.now());
-                            double valorMulta = diasAtraso * 2.0; 
-                            u.setMultaAcumulada(u.getMultaAcumulada() + valorMulta);
-                            System.out.printf("Multa de R$ %.2f gerada (%d dias de atraso).\n", valorMulta, diasAtraso);
-                        }
-                        // tira da mochila do cara
-                        u.removerLivro(livroPraDevolver);
-                    }
-                    
-                    fachada.devolverLivro(isbnDevolucao, u);
-                    System.out.println("Devolvido com sucesso!");
-                } 
             } catch (Exception e) { 
                 System.out.println("\nErro: " + e.getMessage()); 
             }
         }
     }
+    private void verificarMultas(Biblioteca fachada, Usuario u, Scanner sc) {
+        System.out.println("\n--- STATUS DE MULTAS ---");
+        //mostra o que já está gravado no CSV
+        System.out.println("Saldo de Multa Acumulada: R$ " + u.getMultaAcumulada()); //
+        
+        if (u.getMultaAcumulada() > 0) {
+            System.out.print("Deseja realizar o pagamento agora? (S/N): ");
+            if (sc.nextLine().equalsIgnoreCase("S")) {
+                fachada.pagarMulta(u); //
+                System.out.println("Pagamento realizado! Seu saldo está zerado.");
+            }
+        } else {
+            System.out.println("Você não possui multas pendentes.");
+        }
     }
+
+    private void devolverLivro(Biblioteca fachada, Usuario u, Scanner sc) {
+        System.out.println("\n--- DEVOLUÇÃO DE LIVRO ---");
+        System.out.print("Digite o ISBN do livro: ");
+        String isbn = sc.nextLine();
+
+        try {
+            fachada.devolverLivro(isbn, u); 
+            System.out.println("Livro devolvido com sucesso!");
+
+            //oferece o pagamento caso o usuário tenha multa após devolução
+            if (u.getMultaAcumulada() > 0) {
+                System.out.printf("\nATENÇÃO: Você possui R$ %.2f em multas.\n", u.getMultaAcumulada());
+                System.out.print("Deseja quitar esse valor agora? (S/N): ");
+                
+                if (sc.nextLine().equalsIgnoreCase("S")) {
+                    fachada.pagarMulta(u);
+                    System.out.println("Multa paga! Seu saldo foi zerado.");
+                }
+            }
+        } catch (LivroNaoExisteException e) {
+            System.out.println("Erro: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Erro inesperado: " + e.getMessage());
+        }
+    }
+}

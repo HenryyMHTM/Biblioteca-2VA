@@ -1,18 +1,22 @@
 cpf,nome,dataNascimento,multaAcumulada,tipo
 01234567890,Ana Silva,15/05/1998,0.0,Aluno
-98765432100,Carlos Souza,22/10/1985,4.0,Professor
+98765432100,Carlos Souza,22/10/1985,24.0,Professor
 05544433322,Mariana Costa,10/01/2001,0.0,Aluno
-11122233344,Roberto Dias,05/11/1975,10.5,Professor
-09988877766,Fernanda Lima,30/03/2000,2.0,Aluno
+11122233344,Roberto Dias,05/11/1975,42.5,Professor
+09988877766,Fernanda Lima,30/03/2000,18.0,Aluno
 12312312312,Pedro Alves,12/12/1999,0.0,Aluno
 32132132132,Luciana Gomes,08/07/1980,0.0,Professor
-45645645645,Bruno Martins,25/02/2002,5.0,Aluno
+45645645645,Bruno Martins,25/02/2002,29.0,Aluno
 65465465465,Camila Rocha,18/09/1995,0.0,Aluno
-78978978978,Marcos Paulo,03/04/1970,12.0,Professor
+78978978978,Marcos Paulo,03/04/1970,66.0,Professor
 98798798798,Juliana Mendes,14/11/2003,0.0,Aluno
-14725836900,Thiago Nogueira,21/06/1997,8.0,Aluno
+14725836900,Thiago Nogueira,21/06/1997,50.0,Aluno
 36925814700,Beatriz Ramos,09/08/1988,0.0,Professor
 15975345600,Rafael Ribeiro,27/12/2000,0.0,Aluno
-75315945600,Leticia Carvalho,05/05/1996,1.5,Aluno
+75315945600,Leticia Carvalho,05/05/1996,9.5,Aluno
 12345678910,Matheus Henry Tavares Monteiro,01/07/2006,0.0,Aluno
 44444444444,Pedro Augusto de Paulina,04/04/2004,0.0,Professor
+12345678998,Marlon Albes,78/78/7878,0.0,Aluno
+12378945691,Exemplo de cp,78/78/7898,0.0,Professor
+12345678911,Oieu,20/02/2008,0.0,Aluno
+56689412378,Ivo Holanda,12/02/1940,0.0,Professor

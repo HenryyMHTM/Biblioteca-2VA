@@ -40,7 +40,12 @@ public class RepositorioUsuariosCSV implements IRepositorioUsuarios {
 
     @Override
     public void atualizar(Usuario u) {
-        //usa o objeto da memória para a lista
+        for (int i = 0; i < this.usuarios.size(); i++) {
+            if (this.usuarios.get(i).getCpf().equals(u.getCpf())) {
+                this.usuarios.set(i, u);
+                break;
+            }
+        }
         salvarEmArquivo(); 
     }
 
@@ -89,7 +94,7 @@ public class RepositorioUsuariosCSV implements IRepositorioUsuarios {
             System.err.println("Erro de formatação numérica no CSV: " + e.getMessage());
         }
     }
-
+    
     private void salvarEmArquivo() {
         // O false indica que o arquivo será totalmente reescrito
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(localArquivo, false))) {
